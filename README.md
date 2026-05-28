@@ -1,2 +1,2 @@
 # businessCard
-名刺
+電子名刺
