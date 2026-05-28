@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FUJII YUBUN | ENGINEER PROFILE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#060b12;
+    --panel:rgba(12,18,28,0.82);
+    --line:#17324d;
+    --blue:#43c7ff;
+    --blue2:#00ffe1;
+    --text:#dcefff;
+    --sub:#87a5c4;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+    radial-gradient(circle at top, rgba(0,180,255,0.15), transparent 40%),
+    linear-gradient(#04070c,#07111c);
+    color:var(--text);
+    font-family:'Noto Sans JP',sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+    padding:40px 0 80px;
+}
+
+.hero{
+    position:relative;
+    border:1px solid rgba(67,199,255,0.3);
+    background:var(--panel);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    padding:50px;
+    overflow:hidden;
+    box-shadow:
+    0 0 40px rgba(0,180,255,0.15),
+    inset 0 0 30px rgba(0,180,255,0.05);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    right:-100px;
+    top:-100px;
+    background:radial-gradient(circle, rgba(0,255,255,0.2), transparent 70%);
+}
+
+.scanline{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+    transparent 0%,
+    rgba(255,255,255,0.03) 50%,
+    transparent 100%);
+    background-size:100% 8px;
+    opacity:0.3;
+    pointer-events:none;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr;
+    gap:40px;
+    align-items:center;
+}
+
+.hero-right{
+    display:flex;
+    justify-content:center;
+}
+
+.image-frame{
+    position:relative;
+    width:100%;
+    max-width:340px;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(67,199,255,0.4);
+    box-shadow:
+    0 0 30px rgba(0,180,255,0.25),
+    inset 0 0 30px rgba(0,180,255,0.15);
+    background:#08111b;
+}
+
+.image-frame img{
+    width:100%;
+    display:block;
+    object-fit:cover;
+    filter:contrast(1.05) saturate(1.05);
+}
+
+.hud-line{
+    position:absolute;
+    width:100%;
+    height:2px;
+    background:rgba(0,255,255,0.8);
+    box-shadow:0 0 20px cyan;
+    animation:scan 4s linear infinite;
+}
+
+@keyframes scan{
+    0%{ top:0%; }
+    100%{ top:100%; }
+}
+
+.small-title{
+    color:var(--blue2);
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:15px;
+    font-family:'Orbitron',sans-serif;
+}
+
+.name{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(42px,7vw,78px);
+    line-height:1;
+    margin-bottom:10px;
+}
+
+.role{
+    font-size:20px;
+    color:var(--blue);
+    margin-bottom:30px;
+}
+
+.catch{
+    max-width:720px;
+    color:#d7e9ff;
+    line-height:1.9;
+    font-size:15px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+    margin-top:30px;
+}
+
+.card{
+    position:relative;
+    background:var(--panel);
+    border:1px solid rgba(67,199,255,0.18);
+    border-radius:18px;
+    padding:28px;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(var(--blue),transparent);
+}
+
+.card-title{
+    font-family:'Orbitron',sans-serif;
+    color:var(--blue);
+    margin-bottom:20px;
+    font-size:18px;
+    letter-spacing:2px;
+}
+
+.item{
+    margin-bottom:14px;
+    color:#dce7f5;
+    line-height:1.7;
+}
+
+.techs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tag{
+    border:1px solid rgba(67,199,255,0.3);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    background:rgba(67,199,255,0.06);
+    color:#c8f5ff;
+}
+
+.contact{
+    margin-top:40px;
+    text-align:center;
+}
+
+.contact a{
+    display:inline-block;
+    margin:10px;
+    padding:14px 24px;
+    border:1px solid rgba(67,199,255,0.3);
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    background:rgba(67,199,255,0.05);
+}
+
+.contact a:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,200,255,0.3);
+}
+
+footer{
+    margin-top:60px;
+    text-align:center;
+    color:#5d7188;
+    font-size:12px;
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+    grid-template-columns:1fr;
+}
+
+.hero-right{
+    order:-1;
+}
+
+.image-frame{
+    max-width:280px;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+    padding:30px;
+}
+
+.name{
+    font-size:42px;
+}
+
+.role{
+    font-size:16px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<section class="hero">
+
+<div class="scanline"></div>
+
+<div class="hero-grid">
+
+<div class="hero-left">
+
+<div class="small-title">
+NEXT GENERATION ENGINEERING PROFILE
+</div>
+
+<h1 class="name">
+FUJII YUBUN
+</h1>
+
+<div class="role">
+MECHATRONICS / AI / SYSTEM DESIGN / DATA SCIENCE
+</div>
+
+<p class="catch">
+電子回路、機械設計、AI、データサイエンス、組込み、
+データベースまでを横断するフルスタックエンジニア。
+
+ハードウェアとソフトウェアの境界を越え、
+“実際に動くもの” を構築することを得意としています。
+
+AI・制御・工学・デザインを統合し、
+実装可能な未来システムを設計しています。
+</p>
+
+</div>
+
+<div class="hero-right">
+
+<div class="image-frame">
+
+<img src="profile.jpg" alt="FUJII YUBUN">
+
+<div class="hud-line"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="grid">
+
+<div class="card">
+<div class="card-title">PROFILE</div>
+
+<div class="item">
+藤井工藝 代表
+</div>
+
+<div class="item">
+工学・制御・AI・設計を横断する開発者
+</div>
+
+<div class="item">
+自然言語関連 特許15件取得ロジック・システム開発
+</div>
+
+<div class="item">
+電子回路 / 機械設計 / 組込み / AI / データ分析
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">ACADEMIC</div>
+
+<div class="item">
+大島商船高等専門学校
+</div>
+
+<div class="item">
+電子機械工学 / 電子情報工学
+</div>
+
+<div class="item">
+九州工業大学大学院
+</div>
+
+<div class="item">
+超伝導工学 / 金属材料
+</div>
+
+<div class="item">
+材料・制御・電子・情報を横断した研究開発
+</div>
+
+</div>
+
+<div class="card">
+<div class="card-title">SPECIALITY</div>
+
+<div class="techs">
+<div class="tag">AI SYSTEM</div>
+<div class="tag">LLM</div>
+<div class="tag">EMBEDDED</div>
+<div class="tag">DATA SCIENCE</div>
+<div class="tag">PYTHON</div>
+<div class="tag">C++</div>
+<div class="tag">Raspberry Pi</div>
+<div class="tag">ELECTRONICS</div>
+<div class="tag">CAD</div>
+<div class="tag">UI/UX</div>
+<div class="tag">OBD</div>
+<div class="tag">IoT</div>
+</div>
+
+</div>
+
+<div class="card">
+<div class="card-title">PROJECTS</div>
+
+<div class="item">・車載データ解析システム</div>
+<div class="item">・可変エアロパーツ設計</div>
+<div class="item">・自動車部品の設計</div>
+<div class="item">・OBD連携ダッシュボード開発</div>
+<div class="item">・感情推定ロジック</div>
+<div class="item">・レコメンドエンジン</div>
+<div class="item">・検索エンジン</div>
+<div class="item">・従業員の退職予測</div>
+<div class="item">・従業員のエンゲージメント分析</div>
+<div class="item">・設備故障予測分析</div>
+<div class="item">・電子楽器開発</div>
+
+</div>
+
+<div class="card">
+<div class="card-title">CONTACT</div>
+
+<div class="item">
+MAIL : fuziikogei@gmail.com
+</div>
+
+<div class="item">
+WEB : https://fuziikogei.handcrafted.jp
+</div>
+
+<div class="item">
+TOKYO / JAPAN
+</div>
+
+</div>
+
+</div>
+
+<div class="contact">
+
+<a href="mailto:fuziikogei@gmail.com">
+MAIL
+</a>
+
+<a href="https://fuziikogei.handcrafted.jp" target="_blank">
+PORTFOLIO
+</a>
+
+</div>
+
+<footer>
+© FUJII KOGEI
+</footer>
+
+</div>
+
+</body>
+</html>
