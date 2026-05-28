@@ -1,196 +1,298 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | 藤井 雄文</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --term-bg: #161b22;
-            --text-main: #e6edf3;
-            --text-green: #4ade80; 
-            --text-blue: #58a6ff;
-            --text-gold: #d29922;
-            --border: #30363d;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            margin: 0;
-            padding: 10px;
-            line-height: 1.4;
-        }
-
-        .terminal {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: var(--term-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-        }
-
-        .header {
-            background-color: #21262d;
-            padding: 10px 15px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-        }
-
-        .dots { display: flex; gap: 8px; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-        .title { margin-left: 20px; color: #8b949e; font-size: 0.8rem; }
-
-        .content { padding: 25px; max-height: 90vh; overflow-y: auto; }
-
-        .prompt { color: var(--text-blue); font-weight: bold; margin-top: 20px; }
-        .prompt::before { content: "fujii@dev:~$ "; }
-        
-        h1 { color: #fff; font-size: 1.8rem; margin: 0; }
-        .patent-badge { 
-            display: inline-block; 
-            background: rgba(210, 153, 34, 0.1); 
-            color: var(--text-gold); 
-            border: 1px solid var(--text-gold);
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .section-box {
-            border: 1px solid var(--border);
-            padding: 15px;
-            border-radius: 6px;
-        }
-
-        .label { color: var(--text-green); font-weight: bold; margin-bottom: 5px; }
-        .list-item { margin-left: 15px; position: relative; }
-        .list-item::before { content: "├ "; position: absolute; left: -15px; color: var(--border); }
-
-        .skill-tag {
-            display: inline-block;
-            background: #21262d;
-            padding: 2px 8px;
-            border-radius: 3px;
-            margin: 2px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border);
-        }
-
-        a { color: var(--text-blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-
-        .highlight { color: var(--text-gold); }
-
-        @media (max-width: 600px) {
-            .content { padding: 15px; }
-            h1 { font-size: 1.4rem; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FUJII YUBUN | ENGINEER PROFILE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+    --bg:#060b12;
+    --panel:rgba(12,18,28,0.82);
+    --line:#17324d;
+    --blue:#43c7ff;
+    --blue2:#00ffe1;
+    --text:#dcefff;
+    --sub:#87a5c4;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:
+    radial-gradient(circle at top, rgba(0,180,255,0.15), transparent 40%),
+    linear-gradient(#04070c,#07111c);
+    color:var(--text);
+    font-family:'Noto Sans JP',sans-serif;
+    overflow-x:hidden;
+}
+/* 背景ライン */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+}
+/* メイン */
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+    padding:40px 0 80px;
+}
+/* HERO */
+.hero{
+    position:relative;
+    border:1px solid rgba(67,199,255,0.3);
+    background:var(--panel);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    padding:50px;
+    overflow:hidden;
+    box-shadow:
+    0 0 40px rgba(0,180,255,0.15),
+    inset 0 0 30px rgba(0,180,255,0.05);
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    right:-100px;
+    top:-100px;
+    background:radial-gradient(circle, rgba(0,255,255,0.2), transparent 70%);
+}
+.scanline{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+    transparent 0%,
+    rgba(255,255,255,0.03) 50%,
+    transparent 100%);
+    background-size:100% 8px;
+    opacity:0.3;
+    pointer-events:none;
+}
+.small-title{
+    color:var(--blue2);
+    letter-spacing:4px;
+    font-size:12px;
+    margin-bottom:15px;
+    font-family:'Orbitron',sans-serif;
+}
+.name{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(42px,7vw,78px);
+    line-height:1;
+    margin-bottom:10px;
+}
+.role{
+    font-size:20px;
+    color:var(--blue);
+    margin-bottom:30px;
+}
+.catch{
+    max-width:720px;
+    color:#d7e9ff;
+    line-height:1.9;
+    font-size:15px;
+}
+/* INFO */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+    margin-top:30px;
+}
+.card{
+    position:relative;
+    background:var(--panel);
+    border:1px solid rgba(67,199,255,0.18);
+    border-radius:18px;
+    padding:28px;
+    overflow:hidden;
+}
+.card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(var(--blue),transparent);
+}
+.card-title{
+    font-family:'Orbitron',sans-serif;
+    color:var(--blue);
+    margin-bottom:20px;
+    font-size:18px;
+    letter-spacing:2px;
+}
+.item{
+    margin-bottom:14px;
+    color:#dce7f5;
+    line-height:1.7;
+}
+.techs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.tag{
+    border:1px solid rgba(67,199,255,0.3);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:13px;
+    background:rgba(67,199,255,0.06);
+    color:#c8f5ff;
+}
+/* CONTACT */
+.contact{
+    margin-top:40px;
+    text-align:center;
+}
+.contact a{
+    display:inline-block;
+    margin:10px;
+    padding:14px 24px;
+    border:1px solid rgba(67,199,255,0.3);
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    background:rgba(67,199,255,0.05);
+}
+.contact a:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,200,255,0.3);
+}
+footer{
+    margin-top:60px;
+    text-align:center;
+    color:#5d7188;
+    font-size:12px;
+}
+/* スマホ */
+@media(max-width:768px){
+.hero{
+    padding:30px;
+}
+.name{
+    font-size:42px;
+}
+.role{
+    font-size:16px;
+}
+}
+</style>
 </head>
 <body>
-
-<div class="terminal">
-    <div class="header">
-        <div class="dots">
-            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-        </div>
-        <div class="title">Handcrafted Logic - Terminal Session</div>
-    </div>
-
-    <div class="content">
-        <!-- 基本情報 -->
-        <section>
-            <h1>藤井 雄文 / FUJII YUBUN</h1>
-            <div class="patent-badge"><i class="fas fa-certificate"></i> LLM系を含む15件のロジック・システム特許取得</div>
-            <p style="margin-top:15px;">
-                <i class="fas fa-link"></i> HP: <a href="https://fuziikogei.handcrafted.jp/" target="_blank">fuziikogei.handcrafted.jp</a><br>
-                <i class="fas fa-envelope"></i> MAIL: <a href="mailto:fuziikogei@gmail.com">fuziikogei@gmail.com</a>
-            </p>
-        </section>
-
-        <!-- 職歴・学歴 -->
-        <p class="prompt">cat bio.log</p>
-        <div class="info-grid">
-            <div class="section-box">
-                <div class="label">[Job Experience]</div>
-                <div class="list-item">東洋鋼鈑株式会社 - データベースエンジニア</div>
-                <div class="list-item">藤井工藝 - 代表社員</div>
-            </div>
-            <div class="section-box">
-                <div class="label">[Educational Background]</div>
-                <div class="list-item">大島商船高等専門学校 電子機械工学科</div>
-                <div class="list-item">大島商船高等専門学校 電子情報システム工学専攻</div>
-                <div class="list-item">九州工業大学大学院 生命体工学研究科（修士）</div>
-            </div>
-        </div>
-
-        <!-- スキル詳細 -->
-        <p class="prompt">system-check --skills</p>
-        <div class="section-box">
-            <div style="margin-bottom:10px;"><span class="label">Major:</span> 超電導工学, 材料工学, 電子回路設計, 機械設計, データサイエンス, システム開発, データベース</div>
-            <div style="margin-bottom:10px;"><span class="label">HARD:</span> 電子回路設計, アートワーク設計, 2D_CAD, 3D_CAD</div>
-            <div style="margin-bottom:10px;"><span class="label">OS:</span> 
-                <span class="skill-tag">MAC</span><span class="skill-tag">WINDOWS</span><span class="skill-tag">LINUX</span><span class="skill-tag">UBUNTU</span><span class="skill-tag">RED HAT</span><span class="skill-tag">RASPBERRY PI</span><span class="skill-tag">ANDROID</span>
-            </div>
-            <div style="margin-bottom:10px;"><span class="label">Languages:</span> 
-                <span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">PYTHON</span><span class="skill-tag">SQL</span><span class="skill-tag">HTML</span><span class="skill-tag">JAVA</span><span class="skill-tag">CSS</span>
-            </div>
-            <div style="margin-bottom:10px;"><span class="label">Database & Cloud:</span> 
-                <span class="skill-tag">ORACLE</span><span class="skill-tag">POSTGRESQL</span><span class="skill-tag">MYSQL</span><span class="skill-tag">AWS</span>
-            </div>
-            <div><span class="label">AI Tools:</span> 
-                <span class="skill-tag">ChatGPT</span><span class="skill-tag">Gemma</span><span class="skill-tag">Gemini</span><span class="skill-tag">Claude</span><span class="skill-tag">Grok</span>
-            </div>
-        </div>
-
-        <!-- 実績 -->
-        <p class="prompt">ls -la ./achievements</p>
-        <div class="section-box">
-            <div class="list-item">電子サックス 開発</div>
-            <div class="list-item">ミキサー 開発</div>
-            <div class="list-item">退職者予測分析</div>
-            <div class="list-item">社内エンゲージメント分析</div>
-            <div class="list-item">工場装置故障および整備タイミング予測</div>
-            <div class="list-item">ナビゲーションシステム内の検索エンジンの開発</div>
-            <div class="list-item">SNS情報を活用したレコメンドシステム開発</div>
-            <div class="list-item">感情推定ロジックの開発</div>
-            <div class="list-item">動画を活用した情報収集ロジックの開発</div>
-            <div style="margin-top:10px; color:var(--text-dim); font-style:italic;">...and many LLM-based logic systems.</div>
-        </div>
-
-        <p class="prompt" id="cursor">echo "Connection closed."</p>
-    </div>
+<div class="container">
+<section class="hero">
+<div class="scanline"></div>
+<div class="small-title">
+NEXT GENERATION ENGINEERING PROFILE
 </div>
-
-<footer style="text-align: center; color: #484f58; font-size: 0.7rem; margin-bottom: 30px;">
-    &copy; 2024 FUJII KOGEI. Designed for GitHub Pages.
+<h1 class="name">
+FUJII YUBUN
+</h1>
+<div class="role">
+MECHATRONICS / AI / SYSTEM DESIGN / DATA SCIENCE
+</div>
+<p class="catch">
+電子回路、機械設計、AI、データサイエンス、組込み、
+データベースまでを横断するフルスタックエンジニア。
+ハードウェアとソフトウェアの境界を越え、
+“実際に動くもの” を構築することを得意としています。
+工業・研究・分析・制御・UI設計を統合し、
+新しい体験とシステムを設計しています。
+</p>
+</section>
+<div class="grid">
+<div class="card">
+<div class="card-title">PROFILE</div>
+<div class="item">
+藤井工藝 代表
+</div>
+<div class="item">
+工学・制御・AI・設計を横断する開発者
+</div>
+<div class="item">
+特許取得ロジック・システム開発経験多数
+</div>
+<div class="item">
+電子回路 / 機械設計 / 組込み / AI / データ分析
+</div>
+</div>
+<div class="card">
+<div class="card-title">SPECIALITY</div>
+<div class="techs">
+<div class="tag">AI SYSTEM</div>
+<div class="tag">LLM</div>
+<div class="tag">EMBEDDED</div>
+<div class="tag">DATA SCIENCE</div>
+<div class="tag">PYTHON</div>
+<div class="tag">C++</div>
+<div class="tag">Raspberry Pi</div>
+<div class="tag">ELECTRONICS</div>
+<div class="tag">CAD</div>
+<div class="tag">UI/UX</div>
+<div class="tag">OBD</div>
+<div class="tag">IoT</div>
+</div>
+</div>
+<div class="card">
+<div class="card-title">PROJECTS</div>
+<div class="item">
+・車載データ解析システム
+</div>
+<div class="item">
+・OBD連携ダッシュボード開発
+</div>
+<div class="item">
+・感情推定ロジック
+</div>
+<div class="item">
+・レコメンドエンジン
+</div>
+<div class="item">
+・設備故障予測分析
+</div>
+<div class="item">
+・電子楽器開発
+</div>
+</div>
+<div class="card">
+<div class="card-title">CONTACT</div>
+<div class="item">
+MAIL : fuziikogei@gmail.com
+</div>
+<div class="item">
+WEB : https://fuziikogei.handcrafted.jp
+</div>
+<div class="item">
+TOKYO / JAPAN
+</div>
+</div>
+</div>
+<div class="contact">
+<a href="mailto:fuziikogei@gmail.com">
+MAIL
+</a>
+<a href="https://fuziikogei.handcrafted.jp" target="_blank">
+PORTFOLIO
+</a>
+</div>
+<footer>
+© FUJII KOGEI
 </footer>
-
-<script>
-    // カーソルを点滅させる演出
-    setInterval(() => {
-        const cursor = document.getElementById('cursor');
-        cursor.style.borderRight = cursor.style.borderRight === 'none' ? '2px solid var(--text-blue)' : 'none';
-    }, 500);
-</script>
-
+</div>
 </body>
 </html>
