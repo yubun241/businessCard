@@ -37,7 +37,6 @@ body {
     line-height: 1.6;
 }
 
-/* Background Grid */
 body::before {
     content: "";
     position: fixed;
@@ -124,8 +123,9 @@ body::before {
 .catch {
     max-width: 650px;
     color: var(--sub);
-    font-size: 15px;
+    font-size: 16px;
     white-space: pre-wrap;
+    font-weight: 300;
 }
 
 /* Profile Image */
@@ -191,34 +191,44 @@ body::before {
     letter-spacing: 2px;
     border-bottom: 1px solid var(--line);
     padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
 }
 
 .item-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .item-label {
     color: var(--blue);
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 6px;
     display: block;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .item-content {
     font-size: 14px;
-    margin-bottom: 12px;
     color: var(--text);
 }
 
-.item-content span {
+/* 追加されたコメント部分の装飾 */
+.item-story {
     display: block;
-    padding-left: 15px;
-    border-left: 1px solid var(--line);
-    margin-top: 5px;
+    margin-top: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 2px solid var(--blue);
+    font-size: 13px;
     color: var(--sub);
+    border-radius: 0 4px 4px 0;
+}
+
+.item-content span.highlight {
+    display: block;
+    margin-top: 5px;
+    font-weight: 500;
+    color: var(--blue2);
 }
 
 /* Tech Tags */
@@ -232,8 +242,8 @@ body::before {
     background: rgba(67, 199, 255, 0.05);
     border: 1px solid rgba(67, 199, 255, 0.2);
     padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 12px;
+    border-radius: 4px;
+    font-size: 11px;
     color: var(--blue);
     font-family: 'Orbitron', sans-serif;
 }
@@ -245,16 +255,19 @@ body::before {
 
 .project-list li {
     font-size: 14px;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(255,255,255,0.03);
     display: flex;
     align-items: center;
 }
 
 .project-list li::before {
-    content: "▹";
+    content: "0101";
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
     color: var(--blue2);
-    margin-right: 10px;
+    margin-right: 12px;
+    opacity: 0.5;
 }
 
 /* Buttons */
@@ -272,12 +285,11 @@ body::before {
     text-decoration: none;
     color: white;
     font-family: 'Orbitron', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     transition: 0.4s;
     border: 1px solid var(--blue);
     background: rgba(67, 199, 255, 0.1);
-    backdrop-filter: blur(5px);
 }
 
 .btn:hover {
@@ -292,14 +304,13 @@ footer {
     padding-bottom: 40px;
     text-align: center;
     color: var(--sub);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 2px;
 }
 
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-right { order: -1; max-width: 300px; margin: 0 auto; }
-    .hero { padding: 40px 30px; }
+    .hero-right { order: -1; max-width: 280px; margin: 0 auto; }
 }
 </style>
 </head>
@@ -313,14 +324,15 @@ footer {
         <div class="scanline"></div>
         <div class="hero-grid">
             <div class="hero-left">
-                <div class="small-title">NEXT GENERATION ENGINEERING PROFILE</div>
+                <div class="small-title">MULTI-DISCIPLINARY ENGINEER PROFILE</div>
                 <h1 class="name">藤井 雄文</h1>
-                <div class="role">MECHATRONICS / AI / SYSTEM DESIGN</div>
+                <div class="role">HARDWARE / AI / ARCHITECT</div>
                 <p class="catch">
-電子回路、機械設計、AI、データサイエンス、組込み、データベースまでを横断するフルスタックエンジニア。
+電子回路、機械設計から、AI、データサイエンス、大規模データベースまで。
+ハードウェアとソフトウェアの境界を消失させ、"形あるシステム" を具現化するフルスタックエンジニア。
 
-ハードウェアとソフトウェアの境界を越え、“実際に動くもの” を構築することを得意としています。
-AI・制御・工学・デザインを統合し、実装可能な未来システムを設計しています。
+既存の枠組みに捉われず、工学・デザイン・実装を高度に統合し、
+未来のスタンダードとなる技術基盤を設計・構築しています。
                 </p>
             </div>
             <div class="hero-right">
@@ -337,19 +349,63 @@ AI・制御・工学・デザインを統合し、実装可能な未来システ
         <div class="card">
             <div class="card-title">PROFILE</div>
             <div class="item-group">
-                <span class="item-label">CURRENT</span>
+                <span class="item-label">CURRENT STATUS</span>
                 <div class="item-content">
-                    株式会社東洋鋼鈑 サーバーエンジニア<br>
+                    株式会社東洋鋼鈑 サーバーエンジニア / 
                     藤井工藝 代表
                 </div>
             </div>
             <div class="item-group">
                 <span class="item-label">EXPERTISE</span>
-                <div class="item-content">工学・制御・AI・設計を横断する開発者</div>
+                <div class="item-content">
+                    メカトロニクス、制御理論、AI、ハードウェア設計を横断する<br>
+                    システムアーキテクト
+                </div>
             </div>
             <div class="item-group">
-                <span class="item-label">ACHIEVEMENT</span>
-                <div class="item-content">自然言語関連 特許15件取得<br>ロジック・システム開発</div>
+                <span class="item-label">INTELLECTUAL PROPERTY</span>
+                <div class="item-content">
+                    自然言語処理・システム開発に関連する<br>
+                    特許 15件取得
+                </div>
+            </div>
+        </div>
+
+        <!-- CAREER HISTORY CARD -->
+        <div class="card" style="grid-row: span 2;">
+            <div class="card-title">CAREER HISTORY</div>
+            
+            <div class="item-group">
+                <span class="item-label">ROLAND</span>
+                <div class="item-content">
+                    <span class="highlight">次世代電子楽器の回路設計・アプリ開発</span>
+                    Aerophone / Go / mini / GoLiveCast
+                    <div class="item-story">
+                        自身の情熱である電子楽器開発に従事。回路設計の基礎を確立し、中国での量産ライン監督を単独で遂行するなど、製造現場の最前線を経験。この「ハードウェアへの深い知見」は現在の事業基盤へと継承されています。
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-group">
+                <span class="item-label">KIOXIA</span>
+                <div class="item-content">
+                    <span class="highlight">データサイエンス・エッジコンピューティング</span>
+                    人事退職予測 / 設備故障予測 / 振動データ収集機開発
+                    <div class="item-story">
+                        人事領域から工場の稼働データまで、多岐にわたるビッグデータ解析を主導。統計学的なアプローチと実装力を融合させ、データ分析の高度な基礎能力を習得しました。
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-group">
+                <span class="item-label">AISIN</span>
+                <div class="item-content">
+                    <span class="highlight">フルスタックエンジニア（NLP/Navigation）</span>
+                    自然言語分析を用いた次世代検索システム開発
+                    <div class="item-story">
+                        SNS情報を解析し、施設検索や紹介に活用する革新的なロジックを開発。自然言語処理技術を駆使し、システムのパーソナライズと機能強化を牽引。優秀特許賞を受賞。
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -357,40 +413,18 @@ AI・制御・工学・デザインを統合し、実装可能な未来システ
         <div class="card">
             <div class="card-title">ACADEMIC</div>
             <div class="item-group">
-                <span class="item-label">大島商船高等専門学校</span>
-                <div class="item-content">電子機械工学 / 電子情報システム工学専攻</div>
-            </div>
-            <div class="item-group">
-                <span class="item-label">九州工業大学大学院</span>
+                <span class="item-label">NATIONAL INSTITUTE OF TECHNOLOGY</span>
                 <div class="item-content">
-                    生命体工学研究科 <span>超伝導工学 / 金属材料</span>
-                    <span>全国金属学会優秀ポスター賞受賞</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- JOB EXPERIENCE CARD -->
-        <div class="card">
-            <div class="card-title">CAREER HISTORY</div>
-            <div class="item-group">
-                <span class="item-label">ROLAND</span>
-                <div class="item-content">
-                    ウィンドシンセサイザー回路設計/アプリ開発
-                    <span>製品：エアロフォン / Go / mini / GoLiveCast</span>
+                    大島商船高等専門学校<br>
+                    電子機械工学 / 電子情報システム工学専攻
                 </div>
             </div>
             <div class="item-group">
-                <span class="item-label">KIOXIA</span>
+                <span class="item-label">GRADUATE SCHOOL</span>
                 <div class="item-content">
-                    データサイエンス・エッジ開発
-                    <span>人事退職予測 / 社員エンゲージメント解析 / 設備故障予測 / 振動データ収集機開発</span>
-                </div>
-            </div>
-            <div class="item-group">
-                <span class="item-label">AISIN</span>
-                <div class="item-content">
-                    フルスタックエンジニア
-                    <span>ナビゲーションシステム開発 / 工場DX / 優秀特許賞受賞</span>
+                    九州工業大学大学院 生命体工学研究科<br>
+                    <span class="highlight">超伝導工学 / 金属材料</span>
+                    日本金属学会 優秀ポスター賞受賞
                 </div>
             </div>
         </div>
@@ -399,12 +433,12 @@ AI・制御・工学・デザインを統合し、実装可能な未来システ
         <div class="card">
             <div class="card-title">SPECIALITY</div>
             <div class="techs">
-                <div class="tag">AI SYSTEM</div><div class="tag">LLM</div>
-                <div class="tag">EMBEDDED</div><div class="tag">DATA SCIENCE</div>
-                <div class="tag">DATABASE</div><div class="tag">PYTHON</div>
-                <div class="tag">C / C++</div><div class="tag">AWS</div>
-                <div class="tag">Raspberry Pi</div><div class="tag">CAD</div>
-                <div class="tag">UI/UX</div><div class="tag">IoT</div>
+                <div class="tag">AI / LLM</div><div class="tag">EMBEDDED</div>
+                <div class="tag">DATA SCIENCE</div><div class="tag">DATABASE</div>
+                <div class="tag">PYTHON</div><div class="tag">C / C++</div>
+                <div class="tag">AWS</div><div class="tag">Raspberry Pi</div>
+                <div class="tag">CAD / PCB</div><div class="tag">UI/UX</div>
+                <div class="tag">IoT / OBD</div>
             </div>
         </div>
 
@@ -412,11 +446,11 @@ AI・制御・工学・デザインを統合し、実装可能な未来システ
         <div class="card">
             <div class="card-title">PROJECTS</div>
             <ul class="project-list">
-                <li>車載データ解析システム / 可変エアロパーツ</li>
+                <li>車載データ解析・可変エアロパーツ設計</li>
                 <li>OBD連携ダッシュボード / 感情推定ロジック</li>
-                <li>レコメンド・検索エンジン開発</li>
-                <li>従業員エンゲージメント・退職予測分析</li>
-                <li>設備故障予測 / 電子楽器開発</li>
+                <li>検索エンジン・レコメンドエンジン開発</li>
+                <li>従業員エンゲージメント・退職予測解析</li>
+                <li>産業用設備故障予測・状態監視システム</li>
             </ul>
         </div>
 
@@ -424,14 +458,13 @@ AI・制御・工学・デザインを統合し、実装可能な未来システ
         <div class="card">
             <div class="card-title">CONTACT</div>
             <div class="item-group">
-                <span class="item-label">MAIL</span>
+                <span class="item-label">EMAIL</span>
                 <div class="item-content">fuziikogei@gmail.com</div>
             </div>
             <div class="item-group">
-                <span class="item-label">LINKS</span>
+                <span class="item-label">WEB & SOCIAL</span>
                 <div class="item-content">
-                    note.com/yubun<br>
-                    X: @PXFpECNyLcX8LNu
+                    note: @yubun / X: @PXFpECNyLcX8LNu
                 </div>
             </div>
             <div class="item-group">
