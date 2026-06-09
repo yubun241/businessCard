@@ -6,278 +6,301 @@
 <title>藤井 雄文 | ENGINEER PROFILE</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-    --bg:#060b12;
-    --panel:rgba(12,18,28,0.82);
-    --line:#17324d;
-    --blue:#43c7ff;
-    --blue2:#00ffe1;
-    --text:#dcefff;
-    --sub:#87a5c4;
+:root {
+    --bg: #060b12;
+    --panel: rgba(12, 18, 28, 0.85);
+    --line: #17324d;
+    --blue: #43c7ff;
+    --blue2: #00ffe1;
+    --text: #dcefff;
+    --sub: #87a5c4;
+    --accent-glow: rgba(0, 180, 255, 0.3);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:
-    radial-gradient(circle at top, rgba(0,180,255,0.15), transparent 40%),
-    linear-gradient(#04070c,#07111c);
-    color:var(--text);
-    font-family:'Noto Sans JP',sans-serif;
-    overflow-x:hidden;
+body {
+    background: 
+        radial-gradient(circle at top right, rgba(0, 100, 255, 0.1), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(0, 255, 225, 0.05), transparent 40%),
+        linear-gradient(#04070c, #07111c);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size:40px 40px;
-    pointer-events:none;
+/* Background Grid */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(67, 199, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(67, 199, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
 }
 
-.container{
-    width:min(1100px,92%);
-    margin:auto;
-    padding:40px 0 80px;
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+    padding: 60px 0 100px;
 }
 
-.hero{
-    position:relative;
-    border:1px solid rgba(67,199,255,0.3);
-    background:var(--panel);
-    backdrop-filter:blur(10px);
-    border-radius:24px;
-    padding:50px;
-    overflow:hidden;
-    box-shadow:
-    0 0 40px rgba(0,180,255,0.15),
-    inset 0 0 30px rgba(0,180,255,0.05);
+/* Hero Section */
+.hero {
+    position: relative;
+    border: 1px solid rgba(67, 199, 255, 0.2);
+    background: var(--panel);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    padding: 60px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:300px;
-    height:300px;
-    right:-100px;
-    top:-100px;
-    background:radial-gradient(circle, rgba(0,255,255,0.2), transparent 70%);
+.scanline {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 0%, rgba(67, 199, 255, 0.02) 50%, transparent 100%);
+    background-size: 100% 4px;
+    pointer-events: none;
 }
 
-.scanline{
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(
-    transparent 0%,
-    rgba(255,255,255,0.03) 50%,
-    transparent 100%);
-    background-size:100% 8px;
-    opacity:0.3;
-    pointer-events:none;
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 40px;
+    align-items: center;
 }
 
-.hero-grid{
-    display:grid;
-    grid-template-columns:1.2fr 0.8fr;
-    gap:40px;
-    align-items:center;
+.small-title {
+    color: var(--blue2);
+    letter-spacing: 0.3em;
+    font-size: 13px;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.hero-right{
-    display:flex;
-    justify-content:center;
+.small-title::before {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background: var(--blue2);
 }
 
-.image-frame{
-    position:relative;
-    width:100%;
-    max-width:340px;
-    border-radius:24px;
-    overflow:hidden;
-    border:1px solid rgba(67,199,255,0.4);
-    box-shadow:
-    0 0 30px rgba(0,180,255,0.25),
-    inset 0 0 30px rgba(0,180,255,0.15);
-    background:#08111b;
+.name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(32px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #fff, var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.image-frame img{
-    width:100%;
-    display:block;
-    object-fit:cover;
-    filter:contrast(1.05) saturate(1.05);
+.role {
+    font-size: 18px;
+    color: var(--blue);
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
 }
 
-.hud-line{
-    position:absolute;
-    width:100%;
-    height:2px;
-    background:rgba(0,255,255,0.8);
-    box-shadow:0 0 20px cyan;
-    animation:scan 4s linear infinite;
+.catch {
+    max-width: 650px;
+    color: var(--sub);
+    font-size: 15px;
+    white-space: pre-wrap;
 }
 
-@keyframes scan{
-    0%{ top:0%; }
-    100%{ top:100%; }
+/* Profile Image */
+.image-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--blue);
+    box-shadow: 0 0 25px var(--accent-glow);
 }
 
-.small-title{
-    color:var(--blue2);
-    letter-spacing:4px;
-    font-size:12px;
-    margin-bottom:15px;
-    font-family:'Orbitron',sans-serif;
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.name{
-    font-family:'Orbitron',sans-serif;
-    font-size:clamp(42px,7vw,78px);
-    line-height:1;
-    margin-bottom:10px;
+.hud-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: var(--blue2);
+    box-shadow: 0 0 15px var(--blue2);
+    animation: scan 3s linear infinite;
+    z-index: 2;
 }
 
-.role{
-    font-size:20px;
-    color:var(--blue);
-    margin-bottom:30px;
+@keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
 }
 
-.catch{
-    max-width:720px;
-    color:#d7e9ff;
-    line-height:1.9;
-    font-size:15px;
+/* Card Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:24px;
-    margin-top:30px;
+.card {
+    background: var(--panel);
+    border: 1px solid rgba(67, 199, 255, 0.1);
+    border-radius: 24px;
+    padding: 35px;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.card{
-    position:relative;
-    background:var(--panel);
-    border:1px solid rgba(67,199,255,0.18);
-    border-radius:18px;
-    padding:28px;
-    overflow:hidden;
+.card:hover {
+    border-color: rgba(67, 199, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.card::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    width:4px;
-    height:100%;
-    background:linear-gradient(var(--blue),transparent);
+.card-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--blue2);
+    margin-bottom: 25px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.card-title{
-    font-family:'Orbitron',sans-serif;
-    color:var(--blue);
-    margin-bottom:20px;
-    font-size:18px;
-    letter-spacing:2px;
+.item-group {
+    margin-bottom: 20px;
 }
 
-.item{
-    margin-bottom:14px;
-    color:#dce7f5;
-    line-height:1.7;
+.item-label {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
 }
 
-.techs{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+.item-content {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--text);
 }
 
-.tag{
-    border:1px solid rgba(67,199,255,0.3);
-    padding:8px 14px;
-    border-radius:999px;
-    font-size:13px;
-    background:rgba(67,199,255,0.06);
-    color:#c8f5ff;
+.item-content span {
+    display: block;
+    padding-left: 15px;
+    border-left: 1px solid var(--line);
+    margin-top: 5px;
+    color: var(--sub);
 }
 
-.contact{
-    margin-top:40px;
-    text-align:center;
+/* Tech Tags */
+.techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.contact a{
-    display:inline-block;
-    margin:10px;
-    padding:14px 24px;
-    border:1px solid rgba(67,199,255,0.3);
-    border-radius:12px;
-    text-decoration:none;
-    color:white;
-    transition:0.3s;
-    background:rgba(67,199,255,0.05);
+.tag {
+    background: rgba(67, 199, 255, 0.05);
+    border: 1px solid rgba(67, 199, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--blue);
+    font-family: 'Orbitron', sans-serif;
 }
 
-.contact a:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 20px rgba(0,200,255,0.3);
+/* Projects List */
+.project-list {
+    list-style: none;
 }
 
-footer{
-    margin-top:60px;
-    text-align:center;
-    color:#5d7188;
-    font-size:12px;
+.project-list li {
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
 }
 
-@media(max-width:900px){
-
-.hero-grid{
-    grid-template-columns:1fr;
+.project-list li::before {
+    content: "▹";
+    color: var(--blue2);
+    margin-right: 10px;
 }
 
-.hero-right{
-    order:-1;
+/* Buttons */
+.contact-actions {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.image-frame{
-    max-width:280px;
+.btn {
+    padding: 16px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: 0.4s;
+    border: 1px solid var(--blue);
+    background: rgba(67, 199, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
+.btn:hover {
+    background: var(--blue);
+    color: var(--bg);
+    box-shadow: 0 0 30px var(--accent-glow);
+    transform: translateY(-3px);
 }
 
-@media(max-width:768px){
-
-.hero{
-    padding:30px;
+footer {
+    margin-top: 100px;
+    padding-bottom: 40px;
+    text-align: center;
+    color: var(--sub);
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
-.name{
-    font-size:42px;
+@media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-right { order: -1; max-width: 300px; margin: 0 auto; }
+    .hero { padding: 40px 30px; }
 }
-
-.role{
-    font-size:16px;
-}
-
-}
-
 </style>
 </head>
 
@@ -285,232 +308,148 @@ footer{
 
 <div class="container">
 
-<section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="scanline"></div>
+        <div class="hero-grid">
+            <div class="hero-left">
+                <div class="small-title">NEXT GENERATION ENGINEERING PROFILE</div>
+                <h1 class="name">藤井 雄文</h1>
+                <div class="role">MECHATRONICS / AI / SYSTEM DESIGN</div>
+                <p class="catch">
+電子回路、機械設計、AI、データサイエンス、組込み、データベースまでを横断するフルスタックエンジニア。
 
-<div class="scanline"></div>
+ハードウェアとソフトウェアの境界を越え、“実際に動くもの” を構築することを得意としています。
+AI・制御・工学・デザインを統合し、実装可能な未来システムを設計しています。
+                </p>
+            </div>
+            <div class="hero-right">
+                <div class="image-frame">
+                    <img src="./IMG_8950.jpeg" alt="FUJII YUBUN">
+                    <div class="hud-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="hero-grid">
+    <div class="grid">
+        <!-- PROFILE CARD -->
+        <div class="card">
+            <div class="card-title">PROFILE</div>
+            <div class="item-group">
+                <span class="item-label">CURRENT</span>
+                <div class="item-content">
+                    株式会社東洋鋼鈑 サーバーエンジニア<br>
+                    藤井工藝 代表
+                </div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">EXPERTISE</span>
+                <div class="item-content">工学・制御・AI・設計を横断する開発者</div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">ACHIEVEMENT</span>
+                <div class="item-content">自然言語関連 特許15件取得<br>ロジック・システム開発</div>
+            </div>
+        </div>
 
-<div class="hero-left">
+        <!-- ACADEMIC CARD -->
+        <div class="card">
+            <div class="card-title">ACADEMIC</div>
+            <div class="item-group">
+                <span class="item-label">大島商船高等専門学校</span>
+                <div class="item-content">電子機械工学 / 電子情報システム工学専攻</div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">九州工業大学大学院</span>
+                <div class="item-content">
+                    生命体工学研究科 <span>超伝導工学 / 金属材料</span>
+                    <span>全国金属学会優秀ポスター賞受賞</span>
+                </div>
+            </div>
+        </div>
 
-<div class="small-title">
-NEXT GENERATION ENGINEERING PROFILE
-</div>
+        <!-- JOB EXPERIENCE CARD -->
+        <div class="card">
+            <div class="card-title">CAREER HISTORY</div>
+            <div class="item-group">
+                <span class="item-label">ROLAND</span>
+                <div class="item-content">
+                    ウィンドシンセサイザー回路設計/アプリ開発
+                    <span>製品：エアロフォン / Go / mini / GoLiveCast</span>
+                </div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">KIOXIA</span>
+                <div class="item-content">
+                    データサイエンス・エッジ開発
+                    <span>人事退職予測 / 社員エンゲージメント解析 / 設備故障予測 / 振動データ収集機開発</span>
+                </div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">AISIN</span>
+                <div class="item-content">
+                    フルスタックエンジニア
+                    <span>ナビゲーションシステム開発 / 工場DX / 優秀特許賞受賞</span>
+                </div>
+            </div>
+        </div>
 
-<h1 class="name">
-藤井　雄文
-</h1>
+        <!-- SPECIALITY CARD -->
+        <div class="card">
+            <div class="card-title">SPECIALITY</div>
+            <div class="techs">
+                <div class="tag">AI SYSTEM</div><div class="tag">LLM</div>
+                <div class="tag">EMBEDDED</div><div class="tag">DATA SCIENCE</div>
+                <div class="tag">DATABASE</div><div class="tag">PYTHON</div>
+                <div class="tag">C / C++</div><div class="tag">AWS</div>
+                <div class="tag">Raspberry Pi</div><div class="tag">CAD</div>
+                <div class="tag">UI/UX</div><div class="tag">IoT</div>
+            </div>
+        </div>
 
-<div class="role">
-MECHATRONICS / AI / SYSTEM DESIGN / DATA SCIENCE
-</div>
+        <!-- PROJECTS CARD -->
+        <div class="card">
+            <div class="card-title">PROJECTS</div>
+            <ul class="project-list">
+                <li>車載データ解析システム / 可変エアロパーツ</li>
+                <li>OBD連携ダッシュボード / 感情推定ロジック</li>
+                <li>レコメンド・検索エンジン開発</li>
+                <li>従業員エンゲージメント・退職予測分析</li>
+                <li>設備故障予測 / 電子楽器開発</li>
+            </ul>
+        </div>
 
-<p class="catch">
-電子回路、機械設計、AI、データサイエンス、組込み、
-データベースまでを横断するフルスタックエンジニア。
+        <!-- CONTACT CARD -->
+        <div class="card">
+            <div class="card-title">CONTACT</div>
+            <div class="item-group">
+                <span class="item-label">MAIL</span>
+                <div class="item-content">fuziikogei@gmail.com</div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">LINKS</span>
+                <div class="item-content">
+                    note.com/yubun<br>
+                    X: @PXFpECNyLcX8LNu
+                </div>
+            </div>
+            <div class="item-group">
+                <span class="item-label">LOCATION</span>
+                <div class="item-content">TOKYO / JAPAN</div>
+            </div>
+        </div>
+    </div>
 
-ハードウェアとソフトウェアの境界を越え、
-“実際に動くもの” を構築することを得意としています。
+    <!-- CALL TO ACTION -->
+    <div class="contact-actions">
+        <a href="mailto:fuziikogei@gmail.com" class="btn">SEND MAIL</a>
+        <a href="https://fuziikogei.handcrafted.jp" target="_blank" class="btn">FUJII KOGEI HP</a>
+    </div>
 
-AI・制御・工学・デザインを統合し、
-実装可能な未来システムを設計しています。
-</p>
-
-</div>
-
-<div class="hero-right">
-
-<div class="image-frame">
-
-<img src="./IMG_8950.jpeg" alt="FUJII YUBUN">
-
-<div class="hud-line"></div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="grid">
-
-<div class="card">
-<div class="card-title">PROFILE</div>
-
-<div class="item">
-株式会社東洋鋼鈑 サーバーエンジニア
-藤井工藝 　　　　代表
-</div>
-
-<div class="item">
-工学・制御・AI・設計を横断する開発者
-</div>
-
-<div class="item">
-自然言語関連 特許15件取得ロジック・システム開発
-</div>
-
-<div class="item">
-電子回路 / 機械設計 / 組込み / AI / データ分析
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="card-title">ACADEMIC</div>
-
-<div class="item">
-○大島商船高等専門学校
-</div>
-
-<div class="item">
-電子機械工学 / 電子情報システム工学専攻
-</div>
-
-<div class="item">
-○九州工業大学大学院
-</div>
-<div class="item">
-生命体工学研究科
-</div>
-
-<div class="item">
-超伝導工学 / 金属材料
-</div>
-
-<div class="item">
--全国金属学会優秀ポスター賞受賞
-</div>
-
-
-<div class="card-title">JOB</div>
-
-<div class="item">
-○ローランド株式会社
-</div>
-<div class="item">
-ウィンドシンセサイザーの回路設計/スマートフォンアプリ開発
-</div>
-<div class="item">
-エアロフォン/Go/mini
-</div>
-<div class="item">
-GoLiveCast
-</div>
-<div class="item">
-○KIOXIA
-<div class="item">
-データサイエンス
-</div>
-<div class="item">
-人事退職予測/社員エンゲージメント解析/設備故障予測/エッジコンピューティングを活用した振動データ取集機の開発/傾向管理可視化システムの開発
-</div>
-<div class="item">
-○株式会社アイシン
-<div class="item">
-フルスタックエンジニア
-</div>
-<div class="item">
-ナビゲーションシステム開発/新事業/工場DX/
-</div>
-<div class="item">
-優秀特許賞受賞
-</div>
-
-    
-</div>
-
-<div class="card">
-<div class="card-title">SPECIALITY</div>
-
-<div class="techs">
-<div class="tag">AI SYSTEM</div>
-<div class="tag">LLM</div>
-<div class="tag">EMBEDDED</div>
-<div class="tag">DATA SCIENCE</div>
-<div class="tag">DATA BASE</div>
-<div class="tag">Machine Learning</div>
-<div class="tag">PYTHON</div>
-<div class="tag">C</div>
-<div class="tag">C++</div>
-<div class="tag">CSS</div>
-<div class="tag">HTML</div>
-<div class="tag">ORACLE</div>
-<div class="tag">POSTGRE</div>
-<div class="tag">SQL</div>
-<div class="tag">AWS</div>
-<div class="tag">Raspberry Pi</div>
-<div class="tag">ELECTRONICS</div>
-<div class="tag">CAD</div>
-<div class="tag">UI/UX</div>
-<div class="tag">OBD</div>
-<div class="tag">IoT</div>
-</div>
-
-</div>
-
-<div class="card">
-<div class="card-title">PROJECTS</div>
-
-<div class="item">・車載データ解析システム</div>
-<div class="item">・可変エアロパーツ設計</div>
-<div class="item">・自動車部品の設計</div>
-<div class="item">・OBD連携ダッシュボード開発</div>
-<div class="item">・感情推定ロジック</div>
-<div class="item">・レコメンドエンジン</div>
-<div class="item">・検索エンジン</div>
-<div class="item">・従業員の退職予測</div>
-<div class="item">・従業員のエンゲージメント分析</div>
-<div class="item">・設備故障予測分析</div>
-<div class="item">・電子楽器開発</div>
-
-</div>
-
-<div class="card">
-<div class="card-title">CONTACT</div>
-
-<div class="item">
-MAIL : fuziikogei@gmail.com
-</div>
-
-<div class="item">
-WEB : https://fuziikogei.handcrafted.jp
-</div>
-
-<div class="item">
-X : @PXFpECNyLcX8LNu
-</div>
-
-<div class="item">
-note : https://note.com/yubun
-</div>
-
-<div class="item">
-TOKYO / JAPAN
-</div>
-
-</div>
-
-</div>
-
-<div class="contact">
-
-<a href="mailto:fuziikogei@gmail.com">
-MAIL
-</a>
-
-<a href="https://fuziikogei.handcrafted.jp" target="_blank">
-藤井工藝HP
-</a>
-
-</div>
-
-<footer>
-© FUJII KOGEI
-</footer>
+    <footer>
+        &copy; FUJII KOGEI. ALL RIGHTS RESERVED.
+    </footer>
 
 </div>
 
